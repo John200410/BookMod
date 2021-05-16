@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "bookmod",
+    "name": "BookMod",
+    "description": "Mod made for Crystallising",
+    "version": "v1.0",
+    "mcversion": "1.12.2",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "John200410"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
