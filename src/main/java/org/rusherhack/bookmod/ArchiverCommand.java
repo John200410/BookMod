@@ -10,16 +10,16 @@ import net.minecraft.util.text.TextComponentString;
  *
  * @author John200410 5/15/2021 for bookmod
  */
-public class BookModCommand extends CommandBase {
+public class ArchiverCommand extends CommandBase {
 	
 	@Override
 	public String getName() {
-		return "bookmod";
+		return "archiver";
 	}
 	
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "bookmod <start/stop>";
+		return this.getName() + " <start/stop>";
 	}
 	
 	@Override
@@ -30,7 +30,7 @@ public class BookModCommand extends CommandBase {
 		} else {
 			switch (args[0].toLowerCase()) {
 				case "start":
-					sender.sendMessage(new TextComponentString(BookMod.PREFIX + " " + (BookMod.BOOK_BUFFER.start() ? "Started listening" : "Buffer already active! Run '/bookmod stop' first")));
+					sender.sendMessage(new TextComponentString(BookMod.PREFIX + " " + (BookMod.BOOK_BUFFER.start() ? "Started listening" : "Buffer already active! Run '/archiver stop' first")));
 					break;
 				case "stop":
 					try {

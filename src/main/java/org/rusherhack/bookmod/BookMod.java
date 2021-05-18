@@ -52,7 +52,7 @@ public class BookMod {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 		//register our bookmod command
-		ClientCommandHandler.instance.registerCommand(new BookModCommand());
+		ClientCommandHandler.instance.registerCommand(new ArchiverCommand());
 	}
 	
 }
