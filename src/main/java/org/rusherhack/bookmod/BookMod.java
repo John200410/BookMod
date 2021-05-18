@@ -23,8 +23,8 @@ public class BookMod {
 	/**
 	 * Constants
 	 */
-	public static final String MOD_ID = "bookmod";
-	public static final String MOD_NAME = "BookMod";
+	public static final String MOD_ID = "autobookarchiver";
+	public static final String MOD_NAME = "AutoBookArchiver";
 	public static final String VERSION = "1.0-SNAPSHOT";
 	public static final File PATH = new File(MOD_NAME);
 	public static final String PREFIX = String.format("%s[%s]", TextFormatting.DARK_AQUA, MOD_NAME);

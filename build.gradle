@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 
 group = 'org.rusherhack'
 version = '1.0-SNAPSHOT'
-archivesBaseName = 'bookmod'
+archivesBaseName = 'autobookarchiver'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
@@ -114,7 +114,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "bookmod",
+                "Specification-Title"     : "autobookarchiver",
                 "Specification-Vendor"    : "John200410",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,

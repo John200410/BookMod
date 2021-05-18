@@ -1,7 +1,7 @@
 [
   {
-    "modid": "bookmod",
-    "name": "BookMod",
+    "modid": "autobookarchiver",
+    "name": "AutoBookArchiver",
     "description": "Mod made for Crystallising",
     "version": "v1.0",
     "mcversion": "1.12.2",

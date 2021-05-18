@@ -51,6 +51,7 @@ public class BookBuffer {
 	 * Folder to save book info and screenshots to
 	 */
 	private File dataFolder;
+	
 	/**
 	 * Last item that the cursor has hovered over.
 	 * <p>
@@ -135,6 +136,34 @@ public class BookBuffer {
 		}
 	}
 	
+	/**
+	 * Will try adding this book to the buffer and will take a screenshot
+	 *
+	 * @param title  title of book
+	 * @param author author of book
+	 */
+	public void addBook(String title, String author) {
+		if(this.active) {
+			//add book, and if this book wasn't already there then take a screenshot
+			final BookInfo bookInfo = new BookInfo(title, author);
+			if(this.books.add(bookInfo)) {
+				final Minecraft mc = Minecraft.getMinecraft();
+				String name;
+				
+				//encode to make sure file can save properly if the file has special characters
+				try {
+					name = URLEncoder.encode(bookInfo.toString(), "UTF-8");
+				} catch (UnsupportedEncodingException e) { //this shouldn't happen, BUT if it does then fallback to just author + epoch time
+					e.printStackTrace();
+					name = bookInfo.getAuthor() + System.currentTimeMillis();
+				}
+				
+				//add screenshot
+				this.screenshots.add(new Tuple<>(name, ScreenShotHelper.createScreenshot(mc.displayWidth, mc.displayHeight, mc.getFramebuffer())));
+			}
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return (this.active ? "ACTIVE " : "IDLE ") + this.books + (this.dataFolder != null ? " " + this.dataFolder.getName() : "");
@@ -174,34 +203,6 @@ public class BookBuffer {
 		}
 		
 		this.lastHoveredStack = stack;
-	}
-	
-	/**
-	 * Will try adding this book to the buffer and will take a screenshot
-	 *
-	 * @param title  title of book
-	 * @param author author of book
-	 */
-	public void addBook(String title, String author) {
-		if(this.active) {
-			//add book, and if this book wasn't already there then take a screenshot
-			final BookInfo bookInfo = new BookInfo(title, author);
-			if(this.books.add(bookInfo)) {
-				final Minecraft mc = Minecraft.getMinecraft();
-				String name;
-				
-				//encode to make sure file can save properly if the file has special characters
-				try {
-					name = URLEncoder.encode(bookInfo.toString(), "UTF-8");
-				} catch (UnsupportedEncodingException e) { //this shouldn't happen, BUT if it does then fallback to just author + epoch time
-					e.printStackTrace();
-					name = bookInfo.getAuthor() + System.currentTimeMillis();
-				}
-				
-				//add screenshot
-				this.screenshots.add(new Tuple<>(name, ScreenShotHelper.createScreenshot(mc.displayWidth, mc.displayHeight, mc.getFramebuffer())));
-			}
-		}
 	}
 	
 	/*************************************************/
