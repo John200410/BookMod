@@ -45,4 +45,9 @@ public class ArchiverCommand extends CommandBase {
 			}
 		}
 	}
+	
+	@Override
+	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
+		return true;
+	}
 }
