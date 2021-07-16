@@ -96,7 +96,7 @@ public class BookBuffer {
 			//write data
 			final FileWriter fileWriter = new FileWriter(storingFile);
 			for (BookInfo book : this.books) {
-				fileWriter.write(book.toString() + System.lineSeparator());
+				fileWriter.write("s!addbook " + book.toString() + System.lineSeparator());
 			}
 			fileWriter.close();
 			
