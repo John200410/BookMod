@@ -35,6 +35,8 @@ public class BookMod {
 	@Mod.Instance(MOD_ID)
 	public static BookMod INSTANCE;
 	
+	public static boolean screenshot = true;
+	
 	/**
 	 * This is the first initialization event.
 	 */

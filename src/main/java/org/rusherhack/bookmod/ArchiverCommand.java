@@ -29,6 +29,10 @@ public class ArchiverCommand extends CommandBase {
 			sender.sendMessage(new TextComponentString(BookMod.PREFIX + " " + BookMod.BOOK_BUFFER));
 		} else {
 			switch (args[0].toLowerCase()) {
+				case "togglesc":
+					BookMod.screenshot = !BookMod.screenshot;
+					sender.sendMessage(new TextComponentString(BookMod.PREFIX + "Screenshots have been toggled " + (BookMod.screenshot ? "on" : "off")));
+					break;
 				case "start":
 					sender.sendMessage(new TextComponentString(BookMod.PREFIX + " " + (BookMod.BOOK_BUFFER.start() ? "Started listening" : "Buffer already active! Run '/archiver stop' first")));
 					break;

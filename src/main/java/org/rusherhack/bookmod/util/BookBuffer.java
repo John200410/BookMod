@@ -159,7 +159,9 @@ public class BookBuffer {
 				}
 				
 				//add screenshot
-				this.screenshots.add(new Tuple<>(name, ScreenShotHelper.createScreenshot(mc.displayWidth, mc.displayHeight, mc.getFramebuffer())));
+				if(BookMod.screenshot) {
+					this.screenshots.add(new Tuple<>(name, ScreenShotHelper.createScreenshot(mc.displayWidth, mc.displayHeight, mc.getFramebuffer())));
+				}
 			}
 		}
 	}
