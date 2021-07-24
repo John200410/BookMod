@@ -1,5 +1,6 @@
 package org.rusherhack.bookmod;
 
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
@@ -19,7 +20,7 @@ public class ArchiverCommand extends CommandBase {
 	
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return this.getName() + " <start/stop>";
+		return this.getName() + " <start/stop/folder>";
 	}
 	
 	@Override
@@ -43,6 +44,10 @@ public class ArchiverCommand extends CommandBase {
 						t.printStackTrace();
 						sender.sendMessage(new TextComponentString(BookMod.PREFIX + " " + "Failed to save books! Check log for more details"));
 					}
+					break;
+				case "folder":
+				case "openfolder":
+					OpenGlHelper.openFile(BookMod.PATH);
 					break;
 				default:
 					sender.sendMessage(new TextComponentString(BookMod.PREFIX + " " + "Invalid Arguments!"));
