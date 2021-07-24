@@ -1,11 +1,11 @@
 package org.rusherhack.bookmod.util;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemWrittenBook;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ScreenShotHelper;
 import net.minecraft.util.Tuple;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -141,8 +141,10 @@ public class BookBuffer {
 	 *
 	 * @param title  title of book
 	 * @param author author of book
+	 * @param x      horizontal start position
+	 * @param y      vertical start position
 	 */
-	public void addBook(String title, String author) {
+	public void addBook(String title, String author, int x, int y, int width, int height) {
 		if(this.active) {
 			//add book, and if this book wasn't already there then take a screenshot
 			final BookInfo bookInfo = new BookInfo(title, author);
@@ -160,7 +162,8 @@ public class BookBuffer {
 				
 				//add screenshot
 				if(BookMod.screenshot) {
-					this.screenshots.add(new Tuple<>(name, ScreenShotHelper.createScreenshot(mc.displayWidth, mc.displayHeight, mc.getFramebuffer())));
+					final int scaleFactor = new ScaledResolution(mc).getScaleFactor();
+					this.screenshots.add(new Tuple<>(name, BetterScreenShotHelper.createScreenshot(Math.max(x * scaleFactor - 20, 0), Math.max(y * scaleFactor - 20, 0), Math.min(width * scaleFactor + 40, mc.displayWidth), Math.min(height * scaleFactor + 40, mc.displayHeight))));
 				}
 			}
 		}
@@ -200,7 +203,7 @@ public class BookBuffer {
 				final String author = nbt.getString("author");
 				
 				//add book
-				this.addBook(title, author);
+				this.addBook(title, author, event.getX(), event.getY(), event.getWidth(), event.getHeight());
 			}
 		}
 		

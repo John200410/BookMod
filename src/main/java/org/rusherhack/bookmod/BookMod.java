@@ -25,7 +25,7 @@ public class BookMod {
 	 */
 	public static final String MOD_ID = "autobookarchiver";
 	public static final String MOD_NAME = "AutoBookArchiver";
-	public static final String VERSION = "1.1";
+	public static final String VERSION = "1.2";
 	public static final File PATH = new File(MOD_NAME);
 	public static final String PREFIX = String.format("%s[%s]", TextFormatting.DARK_AQUA, MOD_NAME);
 	public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy HH mm ss");
