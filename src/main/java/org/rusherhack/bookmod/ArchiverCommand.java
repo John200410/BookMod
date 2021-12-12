@@ -20,7 +20,7 @@ public class ArchiverCommand extends CommandBase {
 	
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return this.getName() + " <start/stop/folder>";
+		return getName() + " <start/stop/folder>";
 	}
 	
 	@Override
